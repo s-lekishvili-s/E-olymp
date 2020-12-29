@@ -1,13 +1,11 @@
+//Author: Shalva Lekishvili
 #include <iostream>
 #include <algorithm>
 
 using namespace std;
-
 #define N 101
 #define MAX 2000000000
-
 long dp[N][N];
-
 long answer(int a, long start_value)
 {
 	for (int i = 0; i <= a; ++i)
@@ -31,14 +29,12 @@ long answer(int a, long start_value)
 	for (int i = 1; i <= a; ++i) if (dp[a][i] < Min) Min = dp[a][i];
 	return Min;
 }
-
 int paint2D(int a, int b)
 {
 	long Min = answer(a, 4);
 	if (b == 1) return Min;
 	return answer(b, dp[a][a]);
 }
-
 int main()
 {
 	int *input = new int[3];
